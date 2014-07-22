@@ -322,10 +322,10 @@
 
 -(void)updateTitleAndDescriptionForScrollView:(UIScrollView*)scrollView{
     NSInteger pageIndex = self.pageIndex;
-    if (scrollView.contentOffset.x > (self.view.frame.size.width+self.view.frame.size.width/2)) {
+    if (scrollView.contentOffset.x > (self.view.frame.size.width+self.view.frame.size.width/2) && pageIndex < [self.galleryItems count] - 1) {
         pageIndex++;
     }
-    if (scrollView.contentOffset.x < self.view.frame.size.width/2) {
+    if (scrollView.contentOffset.x < self.view.frame.size.width/2 && pageIndex > 0) {
         pageIndex--;
     }
     [self updateDescriptionLabelForIndex:pageIndex];
